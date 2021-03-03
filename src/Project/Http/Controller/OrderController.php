@@ -100,24 +100,31 @@ class OrderController
     }
 
    /**
+     * @param $id 
      * @param Request $request
      * @return JsonResponse
      * @SWG\Response(
      *     response=200,
      *     description="Returns the updated order"
      * )
+     * 
      * @SWG\Parameter(
-     *     name="status",
-     *     in="query",
-     *     type="string",
-     *     description="update status",
-     *     default="cancelled"
+     *     name="body",
+     *     in="body",
+     *     format="application/json",
+     *     required=true,
+     *     description="update order",
+     *      @SWG\Schema(
+     *          type="object",
+     *          @SWG\Property(property="status", type="string", example="cancelled"),
+     *      )
      * )
+     * 
      * @SWG\Tag(name="orders")
      */
-    public function update(Request $request)
+    public function update(Request $request, int $id)
     {
-        $updatedOrder = $this->orderService->updateOrder($request);
+        $updatedOrder = $this->orderService->updateOrder($request, $id);
         return new JsonResponse($this->fractalService->transform($updatedOrder));
     }
 }

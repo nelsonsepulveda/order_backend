@@ -226,7 +226,7 @@ class Order
     /**
      * @return string
      */
-    public function getLast_modified(): string
+    public function getLastModified(): string
     {
         return $this->last_modified;
     }
@@ -234,7 +234,7 @@ class Order
     /**
      * @param string $last_modified
      */
-    public function setLast_modified(string $last_modified)
+    public function setLastModified(string $last_modified)
     {
         $this->last_modified = $last_modified;
     }

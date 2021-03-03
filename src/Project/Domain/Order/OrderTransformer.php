@@ -26,7 +26,7 @@ class OrderTransformer extends TransformerAbstract
             'amount' => $order->getAmount(),
             'status' => $order->getStatus(),
             'deleted' => $order->getDeleted(),
-            'last_modified' => $order->getLast_modified()
+            'last_modified' => $order->getLastModified()
         ];
     }
 
