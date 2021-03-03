@@ -12,7 +12,6 @@ class OrderFixtures extends Fixture implements OrderedFixtureInterface
 {
     public function load(ObjectManager $manager)
     {
-
         $orderJsonFile = file_get_contents('./orders.json', true);
         $orderJsonData = json_decode($orderJsonFile, true);
 

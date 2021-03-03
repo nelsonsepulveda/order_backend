@@ -104,7 +104,6 @@ class OrderService
      */
     public function updateOrder(Request $request, $id)
     {   
-
         $body = json_decode($request->getContent(), true);
 
         $order = $this->entityManager->getRepository(Order::class)->find($id);
