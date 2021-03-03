@@ -102,24 +102,21 @@ class OrderService
      * @return Item
      * @throws EntityNotFoundException
      */
-    public function updateOrder(Request $request)
-    {
-        $id = $request->get('id');
+    public function updateOrder(Request $request, $id)
+    {   
         $body = json_decode($request->getContent(), true);
-        $status = $body['status'];
 
         $order = $this->entityManager->getRepository(Order::class)->find($id);
 
-        if (!$order) {
-            throw $order->createNotFoundException(
-                'No order found for id '.$id
-            );
-        }
+        if ($order) {
+            $order->setStatus($body['status']);
+            $order->setLastModified(date("Y-m-d H:i:s"));
+            $this->entityManager->flush();
 
-        $order->setStatus($status);
-        $this->entityManager->flush();
+            return new Item($order, $this->orderTransformer, 'order');
+            
+        }        
 
-        return new Item($order, $this->orderTransformer, 'order');
-
+        throw new EntityNotFoundException('No order found for id '.$id);
     }
 }

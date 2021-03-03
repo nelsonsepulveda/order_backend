@@ -28,7 +28,7 @@ class OrderFixtures extends Fixture implements OrderedFixtureInterface
             $order->setAmount($value['amount']);
             $order->setStatus($value['status']);
             $order->setDeleted($value['deleted']);
-            $order->setLast_modified($value['last_modified']);
+            $order->setLastModified($value['last_modified']);
 
             $manager->persist($order);
             $manager->flush();
@@ -42,6 +42,6 @@ class OrderFixtures extends Fixture implements OrderedFixtureInterface
      */
     public function getOrder()
     {
-        return 2;
+        return 1;
     }
 }
