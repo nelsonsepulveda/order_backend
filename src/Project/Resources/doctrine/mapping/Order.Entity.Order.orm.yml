@@ -1,0 +1,29 @@
+App\Project\Domain\Order\Entity\Order:
+    type: entity
+    table: orders
+    repositoryClass: App\Project\Infrastructure\Order\OrderRepository
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        date:
+            type: string
+        customer:
+            type: string
+        address1:
+            type: string
+        city:
+            type: string
+        postcode:
+            type: string
+        country:
+            type: string
+        amount:
+            type: integer
+        status:
+            type: string
+        deleted:
+            type: string
+        last_modified:
+            type: string
