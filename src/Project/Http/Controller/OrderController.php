@@ -106,15 +106,9 @@ class OrderController
      *     response=200,
      *     description="Returns the updated order"
      * )
-     * @SWG\Parameter(
-     *     name="status",
-     *     in="query",
-     *     type="string",
-     *     description="update status",
-     *     default="cancelled"
-     * )
      * @SWG\Tag(name="orders")
      */
+
     public function update(Request $request)
     {
         $updatedOrder = $this->orderService->updateOrder($request);

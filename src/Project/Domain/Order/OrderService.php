@@ -105,7 +105,9 @@ class OrderService
     public function updateOrder(Request $request)
     {
         $id = $request->get('id');
-        $status = $request->get('status');
+        $body = json_decode($request->getContent(), true);
+        $status = $body['status'];
+
         $order = $this->entityManager->getRepository(Order::class)->find($id);
 
         if (!$order) {
